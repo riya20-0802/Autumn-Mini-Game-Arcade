@@ -14,10 +14,13 @@
             <h1>🍁 Autumn Arcade 🍁</h1>
             <p>Select a mini-game to play!</p>
             <br>
-            <button class="btn" onclick="showModeSelect()">🍃 Leaf Catcher</button>
+            <button class="btn" onclick="showLeafCatcherModes()">🍃 Leaf Catcher</button>
+            <button class="btn" onclick="showMemoryModes()">🧠 Memory Match</button>
+            <button class="btn" onclick="showAppleBobbingModes()">🍎 Apple Bobbing</button>
+            <button class="btn" onclick="showPumpkinCarver()">🎃 Pumpkin Carver</button>
         </div>
 
-        <!-- Leaf Catcher MODE SELECTION SCREEN -->
+        <!-- LEAF CATCHER MODE SELECTION SCREEN -->
         <div id="mode-screen" class="hidden">
             <h1>🍃 Leaf Catcher</h1>
             <p>Choose your game mode:</p>
@@ -29,7 +32,7 @@
             <button class="btn" onclick="returnToMenu()" style="background-color: #7f8c8d !important; box-shadow: 0 4px #515a5b !important;">Back</button>
         </div>
 
-        <!--Memory Match MODE SELECTION-->
+        <!-- MEMORY MATCH MODE SELECTION SCREEN -->
         <div id="memory-mode-screen" class="hidden">
             <h1>🧠 Memory Match</h1>
             <p>Choose your grid size:</p>
@@ -40,7 +43,18 @@
             <button class="btn" onclick="returnToMenu()" style="background-color: #7f8c8d !important; box-shadow: 0 4px #515a5b !important;">Back</button>
         </div>
 
-        <!-- Leaf Catcher GAMEPLAY SCREEN -->
+        <!-- APPLE BOBBING MODE SELECTION SCREEN -->
+        <div id="apple-mode-screen" class="hidden">
+            <h1>🍎 Apple Bobbing</h1>
+            <p>Choose your game mode:</p>
+            <br>
+            <button class="btn" onclick="startAppleGame(15)">⚡ Quick Dip (15s)</button>
+            <button class="btn" onclick="startAppleGame(30)">🍎 Barrel Mode (30s)</button>
+            <br>
+            <button class="btn" onclick="returnToMenu()" style="background-color: #7f8c8d !important; box-shadow: 0 4px #515a5b !important;">Back</button>
+        </div>
+
+        <!-- LEAF CATCHER GAMEPLAY SCREEN -->
         <div id="game-screen" class="hidden">
             <h1>🍃 Leaf Catcher</h1>
             <div class="hud">
@@ -51,22 +65,59 @@
             <div id="game-canvas"></div>
 
             <button class="btn hidden" id="play-again-btn" onclick="startLeafGame()">Play Again</button>
-            <button class="btn hidden" id="mode-select-btn" onclick="showModeSelect()">Change Mode</button>
+            <button class="btn hidden" id="mode-select-btn" onclick="showLeafCatcherModes()">Change Mode</button>
             <button class="btn hidden" id="back-btn" onclick="returnToMenu()">Back to Menu</button>
         </div>
 
-        <!--Memory Match GAME SCREEN-->
+        <!-- MEMORY MATCH GAMEPLAY SCREEN -->
         <div id="memory-game-screen" class="hidden">
             <h1>🧠 Memory Match</h1>
-            <div class = "hud">
+            <div class="hud">
                 <span id="memory-moves">Moves: 0</span>
                 <span id="memory-matches">Matches: 0</span>
             </div>
 
             <div id="memory-grid" class="memory-grid-container"></div>
 
-            <button class="btn hidden" id="memory-back-btn" onclick="returnToMenu()">Back To Menu</button>
+            <button class="btn hidden" id="memory-back-btn" onclick="returnToMenu()">Back to Menu</button>
         </div>
+
+        <!-- APPLE BOBBING GAMEPLAY SCREEN -->
+        <div id="apple-game-screen" class="hidden">
+            <h1>🍎 Apple Bobbing</h1>
+            <div class="hud">
+                <span id="apple-score">Score: 0</span>
+                <span id="apple-timer">Time: 15s</span>
+            </div>
+            
+            <div id="apple-canvas" class="water-barrel"></div>
+
+            <button class="btn hidden" id="apple-again-btn" onclick="startAppleGame()">Play Again</button>
+            <button class="btn hidden" id="apple-mode-btn" onclick="showAppleBobbingModes()">Change Mode</button>
+            <button class="btn hidden" id="apple-back-btn" onclick="returnToMenu()">Back to Menu</button>
+        </div>
+
+        <!-- PUMPKIN CARVER GAME SCREEN -->
+        <div id="pumpkin-game-screen" class="hidden">
+            <h1>🎃 Pumpkin Carver</h1>
+            <p style="font-size: 13px; margin-bottom: 8px;">Click and drag to carve your pumpkin!</p>
+            
+            <div id="pumpkin-canvas-wrapper">
+                <canvas id="carve-canvas" width="260" height="220"></canvas>
+            </div>
+
+            <!-- Drawing Tool Selector Toolbar -->
+            <div class="pumpkin-toolbar">
+                <button class="tool-btn active-tool" onclick="setCarveTool('carve', this)">🕳️ Carve</button>
+                <button class="tool-btn" onclick="setCarveTool('glow', this)">✨ Glow</button>
+                <button class="tool-btn" onclick="setCarveTool('eraser', this)">✏️ Erase</button>
+            </div>
+
+            <br>
+            <button class="btn" onclick="clearPumpkinCanvas()" style="background-color: #c0392b !important; box-shadow: 0 4px #962d22 !important;">Clear Canvas</button>
+            <button class="btn" onclick="returnToMenu()" style="background-color: #7f8c8d !important; box-shadow: 0 4px #515a5b !important;">Main Menu</button>
+        </div>
+
     </div>
 
     <script src="script.js"></script>
