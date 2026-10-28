@@ -17,7 +17,6 @@
             <button class="btn" onclick="showLeafCatcherModes()">🍃 Leaf Catcher</button>
             <button class="btn" onclick="showMemoryModes()">🧠 Memory Match</button>
             <button class="btn" onclick="showAppleBobbingModes()">🍎 Apple Bobbing</button>
-            <button class="btn" onclick="showPumpkinCarver()">🎃 Pumpkin Carver</button>
         </div>
 
         <!-- LEAF CATCHER MODE SELECTION SCREEN -->
@@ -97,26 +96,6 @@
             <button class="btn hidden" id="apple-back-btn" onclick="returnToMenu()">Back to Menu</button>
         </div>
 
-        <!-- PUMPKIN CARVER GAME SCREEN -->
-        <div id="pumpkin-game-screen" class="hidden">
-            <h1>🎃 Pumpkin Carver</h1>
-            <p style="font-size: 13px; margin-bottom: 8px;">Click and drag to carve your pumpkin!</p>
-            
-            <div id="pumpkin-canvas-wrapper">
-                <canvas id="carve-canvas" width="260" height="220"></canvas>
-            </div>
-
-            <!-- Drawing Tool Selector Toolbar -->
-            <div class="pumpkin-toolbar">
-                <button class="tool-btn active-tool" onclick="setCarveTool('carve', this)">🕳️ Carve</button>
-                <button class="tool-btn" onclick="setCarveTool('glow', this)">✨ Glow</button>
-                <button class="tool-btn" onclick="setCarveTool('eraser', this)">✏️ Erase</button>
-            </div>
-
-            <br>
-            <button class="btn" onclick="clearPumpkinCanvas()" style="background-color: #c0392b !important; box-shadow: 0 4px #962d22 !important;">Clear Canvas</button>
-            <button class="btn" onclick="returnToMenu()" style="background-color: #7f8c8d !important; box-shadow: 0 4px #515a5b !important;">Main Menu</button>
-        </div>
 
     </div>
 
